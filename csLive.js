@@ -11,6 +11,8 @@ module.exports = function(io) {
   let playingQuestionId = null;
 
   let pendingQuestion = null;
+
+ 
   
   let answerHistory = null;
 
@@ -105,6 +107,11 @@ module.exports = function(io) {
         
         nsp.emit("pendingQuestion", pendingQuestion);
       });
+
+      socket.on("sendPoint", function(val) { 
+        console.log(val)
+         nsp.emit("getPoint", val);
+       });
 
 
 
